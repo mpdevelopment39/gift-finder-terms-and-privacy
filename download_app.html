@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar la App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #000000, #ffffff);
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        header {
+            color: #000000;
+            border-radius: 10px;
+            padding: 10px 0;
+            font-size: 32px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        .download-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .download-button {
+            text-decoration: none;
+            background-color: #000000;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #1d332d;
+        }
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Media query para agregar padding horizontal en dispositivos grandes */
+        @media (min-width: 768px) {
+            .container {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+    </style>
+    <script>
+        function redirigir() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/app/id6723900037";
+            } else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.lawyer.legal.assistant";
+            } else {
+                document.querySelector(".container").innerHTML = "<h2>Por favor, abre esta página en un dispositivo móvil.</h2>";
+            }
+        }
+        window.onload = redirigir;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>Descargar la App</header>
+        <p>Si no eres redirigido automáticamente, selecciona tu plataforma:</p>
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6723900037" class="download-button">
+                <span class="icon">🍎</span> App Store
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.lawyer.legal.assistant" class="download-button">
+                <span class="icon">🤖</span> Google Play
+            </a>
+        </div>
+        <footer>&copy; 2024 Miguel Pérez Riesgo. Todos los derechos reservados.</footer>
+    </div>
+</body>
+</html>
